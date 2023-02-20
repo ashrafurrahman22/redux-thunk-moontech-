@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import deleteProduct from "../../redux/thunk/products/deleteProduct";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch("http://localhost:5000/products")
@@ -67,7 +70,9 @@ const ProductList = () => {
                   </td>
                   <td class='p-2'>
                     <div class='flex justify-center'>
-                      <button>
+                      <button 
+                      onClick={()=>dispatch(deleteProduct(_id))}
+                      >
                         <svg
                           class='w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1'
                           fill='none'

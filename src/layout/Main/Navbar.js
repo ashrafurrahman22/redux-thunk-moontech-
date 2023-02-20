@@ -5,6 +5,11 @@ import { IoIosListBox } from "react-icons/io";
 import { BiSearchAlt } from "react-icons/bi";
 
 const Navbar = () => {
+
+  const handleSearch = (event) => {
+      console.log(event.target.value)
+  }
+
   return (
     <nav className='h-14 bg-indigo-200 rounded-full m-2 max-w-7xl mx-auto px-5'>
       <ul className='h-full  mx-auto flex justify-between items-center gap-3 font-semibold text-indigo-900'>
@@ -12,6 +17,7 @@ const Navbar = () => {
 
         <li className='flex bg-white mx-auto h-8 w-full max-w-lg  rounded-full pr-3'>
           <input
+            onChange={handleSearch}
             className='h-8 rounded-full w-full text-sm border-0 focus:ring-0 outline-none'
             type='text'
             name='search'
