@@ -3,11 +3,22 @@ import { Link } from "react-router-dom";
 import { BsFillCartFill } from "react-icons/bs";
 import { IoIosListBox } from "react-icons/io";
 import { BiSearchAlt } from "react-icons/bi";
+import { searchProduct } from "../../redux/actions/productAction";
+import { useDispatch } from "react-redux";
+import loadProductData from "../../redux/thunk/products/fetchProducts";
 
 const Navbar = () => {
 
+  const dispatch = useDispatch();
+
   const handleSearch = (event) => {
-      console.log(event.target.value)
+    if(event.target.value.length > 0) {
+      dispatch(searchProduct(event.target.value));
+    }
+    else {
+      dispatch (loadProductData())
+    }
+      // console.log(event.target.value)
   }
 
   return (

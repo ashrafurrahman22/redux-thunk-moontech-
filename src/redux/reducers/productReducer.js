@@ -5,6 +5,7 @@ import {
   PRODUCT_LOADED,
   REMOVE_FROM_CART,
   REMOVE_PRODUCT,
+  SEARCH_PRODUCT,
 } from "../actionTypes/actionTypes";
 
 const initialState = {
@@ -18,11 +19,24 @@ const productReducer = (state = initialState, action) => {
   );
 
   switch (action.type) {
+
     case LOAD_PRODUCT:
       return {
         ...state,
         products: action.payload,
       };
+
+      case SEARCH_PRODUCT:
+        if(action.payload.length) {
+          const searchQuery = action.payload.toLowerCase();
+          const filteredProducts = state.products.filter(product => {
+            return product.model.toLowerCase().includes(searchQuery);
+          });
+          return {
+            ...state,
+            products : filteredProducts,
+          };
+        }
 
     case ADD_PRODUCT:
       return {

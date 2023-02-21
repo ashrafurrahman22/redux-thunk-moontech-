@@ -5,7 +5,13 @@ import {
   PRODUCT_LOADED,
   REMOVE_FROM_CART,
   REMOVE_PRODUCT,
+  SEARCH_PRODUCT,
 } from "../actionTypes/actionTypes";
+
+export const searchProduct = (searchValue) => ({
+  type: SEARCH_PRODUCT,
+  payload: searchValue,
+});
 
 export const addProduct = (product) => {
   return {
