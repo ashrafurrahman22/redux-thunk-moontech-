@@ -6,6 +6,9 @@ import {
   REMOVE_FROM_CART,
   REMOVE_PRODUCT,
   SEARCH_PRODUCT,
+  UPDATE_ITEM_FAILURE,
+  UPDATE_ITEM_REQUEST,
+  UPDATE_ITEM_SUCCESS,
 } from "../actionTypes/actionTypes";
 
 const initialState = {
@@ -25,6 +28,15 @@ const productReducer = (state = initialState, action) => {
         ...state,
         products: action.payload,
       };
+
+      case UPDATE_ITEM_REQUEST:
+      return { ...state, loading: true, error: null };
+      
+    case UPDATE_ITEM_SUCCESS:
+      return { ...state, item: action.payload, loading: false, error: null };
+
+    case UPDATE_ITEM_FAILURE:
+      return { ...state, loading: false, error: action.payload };
 
       case SEARCH_PRODUCT:
         if(action.payload.length) {

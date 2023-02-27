@@ -6,12 +6,21 @@ import {
   REMOVE_FROM_CART,
   REMOVE_PRODUCT,
   SEARCH_PRODUCT,
+  UPDATE_ITEM_REQUEST,
+  UPDATE_ITEM_SUCCESS,
+  UPDATE_ITEM_FAILURE 
 } from "../actionTypes/actionTypes";
 
 export const searchProduct = (searchValue) => ({
   type: SEARCH_PRODUCT,
   payload: searchValue,
 });
+
+
+export const updateItemRequest = () => ({ type: UPDATE_ITEM_REQUEST });
+export const updateItemSuccess = (item) => ({ type: UPDATE_ITEM_SUCCESS, payload: item });
+export const updateItemFailure = (error) => ({ type: UPDATE_ITEM_FAILURE, payload: error });
+
 
 export const addProduct = (product) => {
   return {

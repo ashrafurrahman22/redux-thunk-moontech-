@@ -6,6 +6,11 @@ export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 export const LOAD_PRODUCT = "LOAD_PRODUCT";
 export const SEARCH_PRODUCT = "SEARCH_PRODUCT";
 
+// update
+export const UPDATE_ITEM_REQUEST = 'UPDATE_ITEM_REQUEST';
+export const UPDATE_ITEM_SUCCESS = 'UPDATE_ITEM_SUCCESS';
+export const UPDATE_ITEM_FAILURE = 'UPDATE_ITEM_FAILURE';
+
 
 
 // for filters
